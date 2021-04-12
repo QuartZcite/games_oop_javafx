@@ -30,7 +30,7 @@ public final class Logic {
             }
         }
         if (!rez) {
-            throw new OccupiedCellException("Way is note free");
+            throw new OccupiedCellException();
         }
         return rez;
     }
@@ -47,6 +47,6 @@ public final class Logic {
                 return index;
             }
         }
-        throw new FigureNotFoundException("figure not found");
+        throw new FigureNotFoundException();
     }
 }
