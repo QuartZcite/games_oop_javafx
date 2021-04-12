@@ -15,9 +15,11 @@ public class BishopBlackTest extends TestCase {
     }
 
     public void testWay() throws ImpossibleMoveException {
-        BishopBlack bb = new BishopBlack(Cell.C1);
+        Cell source = Cell.C1;
+        Cell dest = Cell.G5;
         Cell[] rez = {Cell.D2, Cell.E3,Cell.F4,Cell.G5};
-        assertThat(bb.way(Cell.C1, Cell.G5), is(rez));
+        BishopBlack bb = new BishopBlack(source);
+        assertThat(bb.way(dest), is(rez));
     }
 
     public void testCopy() {

@@ -21,7 +21,18 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
-        return true;
+        boolean rez = true;
+        for (Figure figure : figures) {
+            for (Cell cell : steps) {
+                if (figure != null && figure.position().equals(cell)) {
+                    rez = false;
+                }
+            }
+        }
+        if (!rez) {
+            throw new OccupiedCellException("Way is note free");
+        }
+        return rez;
     }
 
     public void clean() {
@@ -36,6 +47,6 @@ public final class Logic {
                 return index;
             }
         }
-        throw new FigureNotFoundException();
+        throw new FigureNotFoundException("figure not found");
     }
 }
