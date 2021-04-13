@@ -25,14 +25,11 @@ public final class Logic {
         for (Figure figure : figures) {
             for (Cell cell : steps) {
                 if (figure != null && figure.position().equals(cell)) {
-                    rez = false;
+                    throw new OccupiedCellException("Cell " + cell + " is not free");
                 }
             }
         }
-        if (!rez) {
-            throw new OccupiedCellException();
-        }
-        return rez;
+        return true;
     }
 
     public void clean() {
@@ -47,6 +44,6 @@ public final class Logic {
                 return index;
             }
         }
-        throw new FigureNotFoundException();
+        throw new FigureNotFoundException("Figure not found on " + cell);
     }
 }
